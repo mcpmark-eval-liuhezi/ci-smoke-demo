@@ -1,0 +1,16 @@
+name: CI Smoke Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    name: Smoke check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run smoke script
+        run: bash scripts/smoke.sh
